@@ -25,7 +25,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 taskTextElement.classList.toggle('text-gray-400');
               });
         
-
+              // Delete button
+              const deleteBtn = document.createElement('button');
+              deleteBtn.textContent = 'Delete';
+              deleteBtn.className = 'bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600';
+              deleteBtn.addEventListener('click', () => {
+                taskList.removeChild(taskItem);
+              });
+        
+              taskItem.appendChild(taskTextElement);
+              taskItem.appendChild(deleteBtn);
+              taskList.appendChild(taskItem);
+        
+              taskInput.value = '';
+              taskInput.focus();
             }
           });
         
