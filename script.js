@@ -41,7 +41,14 @@ document.addEventListener('DOMContentLoaded', () => {
               taskInput.focus();
             }
           });
+
+        // Allow pressing Enter to add a task
+        taskInput.addEventListener('keypress', (e) => {
+            
+            if (e.key === 'Enter') {
+                addTaskBtn.click();
+            }
+        });
         
-          
   });
 
