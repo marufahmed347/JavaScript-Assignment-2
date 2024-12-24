@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Add task
         addTaskBtn.addEventListener('click', () => {
 
-            if(taskInput.value == " "){
+            if(taskInput.value == ""){
               alert("Please Enter Your Value")
               return;
           }
@@ -15,7 +15,17 @@ document.addEventListener('DOMContentLoaded', () => {
             if (taskText !== '') {
               const taskItem = document.createElement('li');
               taskItem.className = 'flex justify-between items-center bg-gray-100 p-3 rounded-md';
-                
+                        
+              // Task text
+              const taskTextElement = document.createElement('span');
+              taskTextElement.textContent = taskText;
+              taskTextElement.className = 'text-gray-800 flex-grow cursor-pointer';
+              taskTextElement.addEventListener('click', () => {
+                taskTextElement.classList.toggle('line-through');
+                taskTextElement.classList.toggle('text-gray-400');
+              });
+        
+
             }
           });
         
