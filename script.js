@@ -57,9 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
               taskItem.appendChild(okBtn)
               taskItem.appendChild(editBtn);
               taskItem.appendChild(deleteBtn);
-              taskList.appendChild(taskItem);
-              taskItem.appendChild(taskSpan);
-              
+              taskList.appendChild(taskItem);              
         
               taskInput.value = '';
               taskInput.focus();
