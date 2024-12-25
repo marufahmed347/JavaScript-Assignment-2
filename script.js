@@ -24,25 +24,49 @@ document.addEventListener('DOMContentLoaded', () => {
                 taskTextElement.classList.toggle('line-through');
                 taskTextElement.classList.toggle('text-gray-400');
               });
+
+              // Ok kora button
+              const okBtn = document.createElement('button');
+              okBtn.className = 'bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 mr-1';
+              okBtn.innerHTML = 'Ok';
+              okBtn.addEventListener('click', () => {
+              taskTextElement.style.textDecoration = taskTextElement.style.textDecoration === 'line-through' ? '' : 'line-through';
+              });
+
+              // Edit kora button
+              const editBtn = document.createElement('button');
+              editBtn.className = 'bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 mr-1';
+              editBtn.innerHTML = 'Edit';
+              editBtn.addEventListener('click', () => {
+                const newTaskText = prompt('Edit task:', taskTextElement.textContent);
+                  if (newTaskText !== null && newTaskText.trim() !== '') {
+                  taskTextElement.textContent = newTaskText.trim();
+                  }
+              });
         
-              // Delete button
+              // Delete kora button
               const deleteBtn = document.createElement('button');
-              deleteBtn.textContent = 'Delete';
+              deleteBtn.innerHTML = 'Delete';
               deleteBtn.className = 'bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600';
               deleteBtn.addEventListener('click', () => {
                 taskList.removeChild(taskItem);
               });
-        
+          
+
               taskItem.appendChild(taskTextElement);
+              taskItem.appendChild(okBtn)
+              taskItem.appendChild(editBtn);
               taskItem.appendChild(deleteBtn);
               taskList.appendChild(taskItem);
+              taskItem.appendChild(taskSpan);
+              
         
               taskInput.value = '';
               taskInput.focus();
             }
           });
 
-        // Allow pressing Enter to add a task
+        // enter
         taskInput.addEventListener('keypress', (e) => {
             
             if (e.key === 'Enter') {
